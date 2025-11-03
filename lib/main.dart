@@ -24,6 +24,6 @@ class AdminDashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: SigninView());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: SigninView());
   }
 }
