@@ -56,7 +56,13 @@ class FireStoreService implements DatabaseService {
     return firestore
         .collection(path)
         .snapshots()
-        .map((snapshot) => snapshot.docs.map((e) => e.data()).toList());
+        .map(
+          (snapshot) => snapshot.docs.map((doc) {
+            var data = doc.data();
+            data['reportId'] = doc.id; // Add document ID to the data
+            return data;
+          }).toList(),
+        );
   }
 
   @override

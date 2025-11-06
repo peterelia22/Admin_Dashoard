@@ -33,7 +33,12 @@ class ReportsRepoImpl implements ReportsRepo {
   Future<Either<Failure, void>> updateReport(ReportEntity reportEntity) async {
     try {
       await databaseService.updateData(
-        data: {'status': reportEntity.status.name},
+        data: {
+          'status': reportEntity.status.name,
+          'updatedAt': reportEntity.updatedAt.toIso8601String(),
+          if (reportEntity.adminComment != null)
+            'adminComment': reportEntity.adminComment,
+        },
         path: BackendEndpoint.updateReportStatus,
         documentId: reportEntity.reportId,
       );

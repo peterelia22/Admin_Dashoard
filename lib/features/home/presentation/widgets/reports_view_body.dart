@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
+
 import '../../../../core/helpers/get_mock_report.dart';
 import '../manager/cubits/get_report_cubit/get_reports_cubit.dart';
+import '../views/report_details_view.dart';
 import 'report_card.dart';
 
 class ReportsViewBody extends StatelessWidget {
@@ -42,8 +44,11 @@ class ReportsViewBody extends StatelessWidget {
               return ReportCard(
                 report: report,
                 onTap: () {
-                  // TODO: Navigate to report details
-                  print('Tapped on report: ${report.reportId}');
+                  Navigator.pushNamed(
+                    context,
+                    ReportDetailsView.routeName,
+                    arguments: report,
+                  );
                 },
               );
             },
