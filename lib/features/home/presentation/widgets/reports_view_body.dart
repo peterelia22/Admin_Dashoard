@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:skeletonizer/skeletonizer.dart';
+import '../../../../core/helpers/get_mock_report.dart';
 import '../manager/cubits/get_report_cubit/get_reports_cubit.dart';
 import 'report_card.dart';
 
@@ -12,7 +13,16 @@ class ReportsViewBody extends StatelessWidget {
     return BlocBuilder<GetReportsCubit, GetReportsState>(
       builder: (context, state) {
         if (state is GetReportsLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return Skeletonizer(
+            enabled: true,
+            child: ListView.builder(
+              padding: const EdgeInsets.all(16),
+              itemCount: 5,
+              itemBuilder: (context, index) {
+                return ReportCard(report: getMockReport(), onTap: () {});
+              },
+            ),
+          );
         } else if (state is GetReportsError) {
           return Center(
             child: Text(

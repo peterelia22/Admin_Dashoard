@@ -43,6 +43,7 @@ dependencies:
   shared_preferences: ^2.5.3
   dartz: ^0.10.1
   image_picker: ^1.2.0
+  skeletonizer: ^2.1.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
