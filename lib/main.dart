@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:admin_dashboard/core/helpers/on_generate_routes.dart';
 import 'package:admin_dashboard/features/auth/presentation/views/signin_view.dart';
 import 'package:admin_dashboard/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -31,6 +32,10 @@ class AdminDashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: SigninView());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: onGenerateRoute,
+      initialRoute: SigninView.routeName,
+    );
   }
 }

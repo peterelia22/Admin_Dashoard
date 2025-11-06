@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import '../../../home/presentation/views/home_view.dart';
+
 class SigninView extends StatefulWidget {
   const SigninView({super.key});
+
+  static const String routeName = '/signin';
 
   @override
   State<SigninView> createState() => _SigninViewState();
@@ -24,7 +28,6 @@ class _SigninViewState extends State<SigninView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              
               const Text(
                 "Aman24",
                 style: TextStyle(
@@ -35,7 +38,6 @@ class _SigninViewState extends State<SigninView> {
               ),
               const SizedBox(height: 40),
 
-              
               TextField(
                 controller: emailController,
                 decoration: InputDecoration(
@@ -48,7 +50,6 @@ class _SigninViewState extends State<SigninView> {
               ),
               const SizedBox(height: 16),
 
-              
               TextField(
                 controller: passwordController,
                 obscureText: true,
@@ -62,7 +63,6 @@ class _SigninViewState extends State<SigninView> {
               ),
               const SizedBox(height: 24),
 
-              
               SizedBox(
                 width: double.infinity,
                 height: 50,
@@ -78,20 +78,19 @@ class _SigninViewState extends State<SigninView> {
                             final email = emailController.text.trim();
                             final password = passwordController.text.trim();
 
-                            
                             await FirebaseAuth.instance
                                 .signInWithEmailAndPassword(
                                   email: email,
                                   password: password,
                                 );
 
-                            // لو نجح الدخول
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('Login successful!'),
-                              ),
-                            );
-
+                            // لو نجح الدخول، انتقل للصفحة الرئيسية
+                            if (context.mounted) {
+                              Navigator.pushReplacementNamed(
+                                context,
+                                HomeView.routeName,
+                              );
+                            }
                           } on FirebaseAuthException catch (e) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
