@@ -1,5 +1,3 @@
-// import 'dart:math';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'database_service.dart';
@@ -59,5 +57,14 @@ class FireStoreService implements DatabaseService {
         .collection(path)
         .snapshots()
         .map((snapshot) => snapshot.docs.map((e) => e.data()).toList());
+  }
+
+  @override
+  Future<void> updateData({
+    required String path,
+    required Map<String, dynamic> data,
+    String? documentId,
+  }) async {
+    await firestore.collection(path).doc(documentId).update(data);
   }
 }
