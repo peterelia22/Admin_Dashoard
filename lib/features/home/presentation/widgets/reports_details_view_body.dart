@@ -102,7 +102,7 @@ class _ReportsDetailsViewBodyState extends State<ReportsDetailsViewBody> {
                   // Admin Comment
                   CustomTextField(
                     labelText: 'تعليق المسؤول',
-                    hintText: 'أضف تعليقك أو ملاحظاتك حول البلاغ...',
+                    hintText: '...أضف تعليقك أو ملاحظاتك حول البلاغ',
                     obscureText: false,
                     maxLines: 5,
                     controller: _commentController,
@@ -151,7 +151,7 @@ class _ReportsDetailsViewBodyState extends State<ReportsDetailsViewBody> {
                               );
                             }
                           },
-                    text: isUpdating ? 'جاري الحفظ...' : 'حفظ التغييرات',
+                    text: isUpdating ? '...جاري الحفظ' : 'حفظ التغييرات',
 
                     borderRadius: 12,
                     fontSize: 16,

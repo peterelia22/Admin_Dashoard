@@ -1,3 +1,6 @@
+import 'package:admin_dashboard/app_theme.dart';
+import 'package:admin_dashboard/core/helpers/build_snack_bar.dart';
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -21,7 +24,7 @@ class _SigninViewState extends State<SigninView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppTheme.white,
       body: Center(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -33,18 +36,33 @@ class _SigninViewState extends State<SigninView> {
                 style: TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blueAccent,
+                  color: AppTheme.primaryColor,
                 ),
               ),
               const SizedBox(height: 40),
 
               TextField(
                 controller: emailController,
+                cursorColor: AppTheme.primaryColor,
                 decoration: InputDecoration(
                   labelText: 'Email',
-                  prefixIcon: const Icon(Icons.email_outlined),
+                  labelStyle: const TextStyle(color: AppTheme.black),
+                  floatingLabelStyle: const TextStyle(
+                    color: AppTheme.primaryColor,
+                  ),
+                  prefixIcon: const Icon(
+                    Icons.email_outlined,
+                    color: AppTheme.black,
+                  ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: const BorderSide(
+                      color: AppTheme.primaryColor,
+                      width: 2,
+                    ),
                   ),
                 ),
               ),
@@ -53,11 +71,26 @@ class _SigninViewState extends State<SigninView> {
               TextField(
                 controller: passwordController,
                 obscureText: true,
+                cursorColor: AppTheme.primaryColor,
                 decoration: InputDecoration(
                   labelText: 'Password',
-                  prefixIcon: const Icon(Icons.lock_outline),
+                  labelStyle: const TextStyle(color: AppTheme.black),
+                  floatingLabelStyle: const TextStyle(
+                    color: AppTheme.primaryColor,
+                  ),
+                  prefixIcon: const Icon(
+                    Icons.lock_outline,
+                    color: AppTheme.black,
+                  ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: const BorderSide(
+                      color: AppTheme.primaryColor,
+                      width: 2,
+                    ),
                   ),
                 ),
               ),
@@ -78,24 +111,32 @@ class _SigninViewState extends State<SigninView> {
                             final email = emailController.text.trim();
                             final password = passwordController.text.trim();
 
-                            await FirebaseAuth.instance
-                                .signInWithEmailAndPassword(
-                                  email: email,
-                                  password: password,
+                            if (email == 'admin@aman24.com') {
+                              await FirebaseAuth.instance
+                                  .signInWithEmailAndPassword(
+                                    email: email,
+                                    password: password,
+                                  );
+                              if (context.mounted) {
+                                Navigator.pushReplacementNamed(
+                                  context,
+                                  HomeView.routeName,
                                 );
-
-                            // لو نجح الدخول، انتقل للصفحة الرئيسية
-                            if (context.mounted) {
-                              Navigator.pushReplacementNamed(
-                                context,
-                                HomeView.routeName,
+                              }
+                            } else {
+                              buildSnackBar(
+                                context: context,
+                                title: 'خطا',
+                                message: 'البريد الالكتروني غير صحيح',
+                                contentType: ContentType.failure,
                               );
                             }
                           } on FirebaseAuthException catch (e) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(e.message ?? 'Login failed'),
-                              ),
+                            buildSnackBar(
+                              context: context,
+                              title: 'خطا',
+                              message: 'بيانات التسجيل غير صحيحة',
+                              contentType: ContentType.failure,
                             );
                           } finally {
                             setState(() {
@@ -104,16 +145,16 @@ class _SigninViewState extends State<SigninView> {
                           }
                         },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blueAccent,
+                    backgroundColor: AppTheme.primaryColor,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
                   child: isLoading
-                      ? const CircularProgressIndicator(color: Colors.white)
+                      ? const CircularProgressIndicator(color: AppTheme.white)
                       : const Text(
                           'Login',
-                          style: TextStyle(fontSize: 18, color: Colors.white),
+                          style: TextStyle(fontSize: 18, color: AppTheme.white),
                         ),
                 ),
               ),
