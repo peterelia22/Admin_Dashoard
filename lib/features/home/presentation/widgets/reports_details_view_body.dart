@@ -7,7 +7,7 @@ import '../../../../core/entities/report_entity.dart';
 import '../../../../core/enums/report_status_enums.dart';
 import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/custom_text_field.dart';
-import '../manager/cubits/update_order_cubit/update_report_cubit.dart';
+import '../manager/cubits/update_reports_cubit/update_report_cubit.dart';
 import 'report_details_header.dart';
 import 'report_details_info_card.dart';
 import 'report_media_gallery.dart';

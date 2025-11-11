@@ -1,7 +1,10 @@
-import 'package:admin_dashboard/app_theme.dart';
-import 'package:admin_dashboard/features/home/presentation/widgets/home_view_body.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import '../../../../app_theme.dart';
+import '../widgets/home_view_body.dart';
+import '../widgets/home_view_body_web.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -10,6 +13,11 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Skip PopScope for web
+    if (kIsWeb) {
+      return _buildScaffold(context);
+    }
+
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, result) async {
@@ -37,18 +45,22 @@ class HomeView extends StatelessWidget {
           SystemNavigator.pop();
         }
       },
-      child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text(
-            'Home Dashboard',
-            style: TextStyle(color: Colors.white),
-          ),
-          backgroundColor: AppTheme.primaryColor,
-          automaticallyImplyLeading: false,
+      child: _buildScaffold(context),
+    );
+  }
+
+  Widget _buildScaffold(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text(
+          'Home Dashboard',
+          style: TextStyle(color: Colors.white),
         ),
-        body: HomeViewBody(),
+        backgroundColor: AppTheme.primaryColor,
+        automaticallyImplyLeading: false,
       ),
+      body: kIsWeb ? const HomeViewBodyWeb() : const HomeViewBody(),
     );
   }
 }

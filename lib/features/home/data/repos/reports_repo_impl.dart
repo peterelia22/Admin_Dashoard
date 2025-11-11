@@ -1,12 +1,12 @@
-import 'package:admin_dashboard/core/entities/report_entity.dart';
-import 'package:admin_dashboard/core/errors/failures.dart';
-import 'package:admin_dashboard/core/models/report_model.dart';
-import 'package:admin_dashboard/core/models/report_notification_model.dart';
-import 'package:admin_dashboard/features/home/domain/repos/reports_repo.dart';
 import 'package:dartz/dartz.dart';
 
+import '../../../../core/entities/report_entity.dart';
+import '../../../../core/errors/failures.dart';
+import '../../../../core/models/report_model.dart';
+import '../../../../core/models/report_notification_model.dart';
 import '../../../../core/services/database_service.dart';
 import '../../../../core/utils/backend_endpoint.dart';
+import '../../domain/repos/reports_repo.dart';
 
 class ReportsRepoImpl implements ReportsRepo {
   final DatabaseService databaseService;

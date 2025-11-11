@@ -1,10 +1,10 @@
-import 'package:admin_dashboard/core/entities/report_entity.dart';
-import 'package:admin_dashboard/features/home/presentation/views/report_details_view.dart';
-import 'package:admin_dashboard/features/home/presentation/views/reports_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/auth/presentation/views/signin_view.dart';
 import '../../features/home/presentation/views/home_view.dart';
+import '../../features/home/presentation/views/report_details_view.dart';
+import '../../features/home/presentation/views/reports_view.dart';
+import '../entities/report_entity.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {

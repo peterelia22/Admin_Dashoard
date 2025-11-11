@@ -1,4 +1,4 @@
-import 'package:admin_dashboard/core/widgets/custom_button.dart';
+import 'package:aman24_admin/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../app_theme.dart';

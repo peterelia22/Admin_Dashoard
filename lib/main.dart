@@ -1,15 +1,15 @@
 import 'dart:developer';
 
-import 'package:admin_dashboard/core/helpers/on_generate_routes.dart';
-import 'package:admin_dashboard/core/services/get_it_service.dart';
-import 'package:admin_dashboard/features/auth/presentation/views/signin_view.dart';
-import 'package:admin_dashboard/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'core/helpers/on_generate_routes.dart';
 import 'core/services/custom_bloc_observer.dart';
+import 'core/services/get_it_service.dart';
 import 'core/utils/shared_preferences_singleton.dart';
+import 'features/auth/presentation/views/signin_view.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

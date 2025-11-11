@@ -1,6 +1,6 @@
-import 'package:admin_dashboard/core/entities/report_entity.dart';
 import 'package:dartz/dartz.dart';
 
+import '../../../../core/entities/report_entity.dart';
 import '../../../../core/errors/failures.dart';
 
 abstract class ReportsRepo {
