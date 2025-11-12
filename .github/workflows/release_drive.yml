@@ -3,7 +3,7 @@ name: Build & Upload Flutter Release to Google Drive
 on:
   push:
     tags:
-      - 'v*'
+      - 'v*'  # كل مرة تعمل Tag زي v1.0.0 workflow يشتغل
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.1'
+          flutter-version: '3.22.1'  # غيّر حسب نسختك
 
       - name: Get dependencies
         run: flutter pub get
@@ -33,4 +33,6 @@ jobs:
           rclone config create gdrive drive scope=drive.file service_account_file=client_secret.json
 
       - name: Upload APK to Google Drive
-        run: rclone copy build/app/outputs/flutter-apk/app-release.apk gdrive:"Flutter-Releases"
+        run: |
+          FOLDER_ID="1xymCLEQGwRQ1BSFnwjN"   # حط هنا الـ Folder ID بتاعك
+          rclone copy build/app/outputs/flutter-apk/app-release.apk gdrive:${FOLDER_ID}
