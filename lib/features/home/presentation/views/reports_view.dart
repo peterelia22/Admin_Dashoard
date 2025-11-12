@@ -12,7 +12,7 @@ import '../widgets/reports_view_body_web.dart';
 class ReportsView extends StatelessWidget {
   const ReportsView({super.key});
   static const String routeName = '/reports';
-
+  // reports view
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
