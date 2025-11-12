@@ -1,0 +1,29 @@
+name: Build & Upload Flutter Release to Google Drive
+
+on:
+  push:
+    tags:
+      - 'v*' 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.32.8'  
+
+      - name: Build release APK
+        run: flutter build apk --release
+
+      - name: Upload to Google Drive
+        uses: JSmithUK/google-drive-upload@v1.4.0
+        with:
+          credentials: ${{ secrets.GDRIVE_CREDENTIALS }}
+          source_file: build/app/outputs/flutter-apk/app-release.apk
+          folder_id: 1xymCLEQGwRQ1BSFnwjN
