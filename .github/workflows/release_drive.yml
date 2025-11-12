@@ -3,7 +3,7 @@ name: Build & Upload Flutter Release to Google Drive
 on:
   push:
     tags:
-      - 'v*' 
+      - 'v*'
 
 jobs:
   build:
@@ -16,14 +16,21 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.32.8'  
+          flutter-version: '3.22.1'
+
+      - name: Get dependencies
+        run: flutter pub get
 
       - name: Build release APK
         run: flutter build apk --release
 
-      - name: Upload to Google Drive
-        uses: JSmithUK/google-drive-upload@v1.4.0
-        with:
-          credentials: ${{ secrets.GDRIVE_CREDENTIALS }}
-          source_file: build/app/outputs/flutter-apk/app-release.apk
-          folder_id: 1xymCLEQGwRQ1BSFnwjN
+      - name: Install rclone
+        run: sudo apt-get update && sudo apt-get install -y rclone
+
+      - name: Configure rclone
+        run: |
+          echo "${{ secrets.GDRIVE_CREDENTIALS }}" > client_secret.json
+          rclone config create gdrive drive scope=drive.file service_account_file=client_secret.json
+
+      - name: Upload APK to Google Drive
+        run: rclone copy build/app/outputs/flutter-apk/app-release.apk gdrive:"Flutter-Releases"
