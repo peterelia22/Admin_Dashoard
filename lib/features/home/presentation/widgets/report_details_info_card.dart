@@ -86,7 +86,7 @@ class ReportDetailsInfoCard extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             InfoRowWidget(
-              label: 'Report ID',
+              label: 'رقم البلاغ',
               value: report.reportId,
               icon: Icons.tag,
             ),

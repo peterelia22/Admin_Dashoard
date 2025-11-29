@@ -35,7 +35,7 @@ class HomeViewBodyWeb extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Admin Dashboard',
+                      'لوحة تحكم المسؤول',
                       style: TextStyle(
                         fontSize: 48,
                         fontWeight: FontWeight.bold,
@@ -45,7 +45,7 @@ class HomeViewBodyWeb extends StatelessWidget {
                     ),
                     const SizedBox(height: 16),
                     Text(
-                      'Manage and monitor all reports efficiently',
+                      'إدارة ومراقبة جميع البلاغات بكفاءة',
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.grey[600],
@@ -57,19 +57,19 @@ class HomeViewBodyWeb extends StatelessWidget {
                       children: [
                         _buildStatCard(
                           icon: Icons.report,
-                          title: 'Total Reports',
+                          title: 'إجمالي البلاغات',
                           color: Colors.blue,
                         ),
                         const SizedBox(width: 20),
                         _buildStatCard(
                           icon: Icons.pending_actions,
-                          title: 'Pending',
+                          title: 'قيد الانتظار',
                           color: Colors.orange,
                         ),
                         const SizedBox(width: 20),
                         _buildStatCard(
                           icon: Icons.check_circle,
-                          title: 'Completed',
+                          title: 'مكتملة',
                           color: Colors.green,
                         ),
                       ],
@@ -82,7 +82,7 @@ class HomeViewBodyWeb extends StatelessWidget {
                         onPressed: () {
                           Navigator.pushNamed(context, ReportsView.routeName);
                         },
-                        text: 'View All Reports',
+                        text: 'عرض جميع البلاغات',
                         gradientColors: AppTheme.primaryGradientColors,
                         shadowColor: AppTheme.primaryShadowColor,
                       ),
@@ -117,7 +117,7 @@ class HomeViewBodyWeb extends StatelessWidget {
                       ),
                       const SizedBox(height: 20),
                       Text(
-                        'Welcome Back!',
+                        'مرحباً بعودتك!',
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -126,7 +126,7 @@ class HomeViewBodyWeb extends StatelessWidget {
                       ),
                       const SizedBox(height: 12),
                       Text(
-                        'Manage your reports with ease',
+                        'أدر بلاغاتك بكل سهولة',
                         style: TextStyle(fontSize: 16, color: Colors.grey[600]),
                         textAlign: TextAlign.center,
                       ),

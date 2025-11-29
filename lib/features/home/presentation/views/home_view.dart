@@ -54,7 +54,7 @@ class HomeView extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          'Home Dashboard',
+          'لوحة التحكم الرئيسية',
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: AppTheme.primaryColor,

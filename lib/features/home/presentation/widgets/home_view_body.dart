@@ -20,7 +20,7 @@ class HomeViewBody extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, ReportsView.routeName);
                 },
-                text: 'Check Reports',
+                text: 'عرض البلاغات',
                 gradientColors: AppTheme.primaryGradientColors,
                 shadowColor: AppTheme.primaryShadowColor,
               ),

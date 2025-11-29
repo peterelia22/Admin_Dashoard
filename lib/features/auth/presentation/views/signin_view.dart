@@ -49,7 +49,7 @@ class _SigninViewState extends State<SigninView> {
                 controller: emailController,
                 cursorColor: AppTheme.primaryColor,
                 decoration: InputDecoration(
-                  labelText: 'Email',
+                  labelText: 'البريد الإلكتروني',
                   labelStyle: const TextStyle(color: AppTheme.black),
                   floatingLabelStyle: const TextStyle(
                     color: AppTheme.primaryColor,
@@ -77,7 +77,7 @@ class _SigninViewState extends State<SigninView> {
                 obscureText: true,
                 cursorColor: AppTheme.primaryColor,
                 decoration: InputDecoration(
-                  labelText: 'Password',
+                  labelText: 'كلمة المرور',
                   labelStyle: const TextStyle(color: AppTheme.black),
                   floatingLabelStyle: const TextStyle(
                     color: AppTheme.primaryColor,
@@ -157,7 +157,7 @@ class _SigninViewState extends State<SigninView> {
                   child: isLoading
                       ? const CircularProgressIndicator(color: AppTheme.white)
                       : const Text(
-                          'Login',
+                          'تسجيل الدخول',
                           style: TextStyle(fontSize: 18, color: AppTheme.white),
                         ),
                 ),
@@ -205,7 +205,7 @@ class _SigninViewState extends State<SigninView> {
                       ),
                       const SizedBox(height: 16),
                       Text(
-                        'Admin Dashboard',
+                        'لوحة تحكم المسؤول',
                         style: TextStyle(
                           fontSize: 32,
                           fontWeight: FontWeight.w600,
@@ -214,7 +214,7 @@ class _SigninViewState extends State<SigninView> {
                       ),
                       const SizedBox(height: 24),
                       Text(
-                        'Monitor and manage all reports efficiently',
+                        'راقب وأدر جميع البلاغات بكفاءة',
                         style: TextStyle(
                           fontSize: 20,
                           color: Colors.grey[600],
@@ -252,7 +252,7 @@ class _SigninViewState extends State<SigninView> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          'Welcome Back',
+                          'مرحباً بعودتك',
                           style: TextStyle(
                             fontSize: 32,
                             fontWeight: FontWeight.bold,
@@ -262,7 +262,7 @@ class _SigninViewState extends State<SigninView> {
                         ),
                         const SizedBox(height: 12),
                         Text(
-                          'Sign in to access your dashboard',
+                          'سجل الدخول للوصول إلى لوحة التحكم',
                           style: TextStyle(
                             fontSize: 16,
                             color: Colors.grey[600],
@@ -275,7 +275,7 @@ class _SigninViewState extends State<SigninView> {
                           cursorColor: AppTheme.primaryColor,
                           style: const TextStyle(fontSize: 16),
                           decoration: InputDecoration(
-                            labelText: 'Email',
+                            labelText: 'البريد الإلكتروني',
                             labelStyle: const TextStyle(color: AppTheme.black),
                             floatingLabelStyle: const TextStyle(
                               color: AppTheme.primaryColor,
@@ -303,7 +303,7 @@ class _SigninViewState extends State<SigninView> {
                           cursorColor: AppTheme.primaryColor,
                           style: const TextStyle(fontSize: 16),
                           decoration: InputDecoration(
-                            labelText: 'Password',
+                            labelText: 'كلمة المرور',
                             labelStyle: const TextStyle(color: AppTheme.black),
                             floatingLabelStyle: const TextStyle(
                               color: AppTheme.primaryColor,
@@ -340,7 +340,7 @@ class _SigninViewState extends State<SigninView> {
                                     color: AppTheme.white,
                                   )
                                 : const Text(
-                                    'Login',
+                                    'تسجيل الدخول',
                                     style: TextStyle(
                                       fontSize: 18,
                                       color: AppTheme.white,
