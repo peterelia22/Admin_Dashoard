@@ -4,22 +4,22 @@ A comprehensive Flutter-based admin dashboard for managing and monitoring report
 
 ## 📋 Table of Contents
 
-- [Features](#features)
-- [Screenshots](#screenshots)
-- [Tech Stack](#tech-stack)
-- [Architecture](#architecture)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Firebase Configuration](#firebase-configuration)
-- [CI/CD](#cicd)
-- [Build & Release](#build--release)
-- [Contributing](#contributing)
+- [Features](#-features)
+- [Screenshots](#-screenshots)
+- [Tech Stack](#️-tech-stack)
+- [Architecture](#️-architecture)
+- [Getting Started](#-getting-started)
+- [Project Structure](#-project-structure)
+- [Firebase Configuration](#-firebase-configuration)
+- [CI/CD](#-cicd)
+- [Build & Release](#-build--release)
+- [Contributing](#-contributing)
 
 ## ✨ Features
 
 ### Core Functionality
 - **🔐 Admin Authentication**: Secure Firebase authentication for admin access
-- **📊 Report Management**: View, filter, and manage all user-submitted reports
+- **📊 Report Management**: View and manage all user-submitted reports
 - **📝 Report Details**: Comprehensive view of individual reports with full media support
 - **💬 Admin Comments**: Add administrative notes and feedback to reports
 - **🔄 Status Updates**: Change report status (Pending, In Progress, Resolved, Rejected)
@@ -31,7 +31,6 @@ A comprehensive Flutter-based admin dashboard for managing and monitoring report
 - Real-time report updates via Firebase Firestore
 - Full-screen media viewer for detailed inspection
 - Video playback support for multimedia reports
-- Filter and search functionality
 - Report timestamp tracking
 - Location/address information display
 
@@ -287,10 +286,6 @@ The project includes automated CI/CD workflows using GitHub Actions:
 - Deploys web build to Firebase Hosting
 - Automated deployment pipeline
 
-### 3. **Drive Upload** (`.github/workflows/release_drive.yml`)
-- Uploads build artifacts to Google Drive
-- Automated backup and distribution
-
 ### Setting Up CI/CD
 
 1. Add `GH_PAT` (GitHub Personal Access Token) to repository secrets
@@ -331,10 +326,6 @@ Contributions are welcome! Please follow these steps:
 ## 📄 License
 
 This project is part of the DEPI (Digital Egypt Pioneers Initiative) program.
-
-## 👥 Authors
-
-- **Peter Elia** - [@peterelia22](https://github.com/peterelia22)
 
 ## 🙏 Acknowledgments
 
