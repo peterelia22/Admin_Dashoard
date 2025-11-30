@@ -4,6 +4,10 @@ A comprehensive Flutter-based admin dashboard for managing and monitoring report
 
 **🌐 Live Demo:** [https://depi-project-1dda8.web.app/](https://depi-project-1dda8.web.app/)
 
+**🎨 Design Files:**
+- [Web Design (Figma)](https://www.figma.com/board/ZjB1C7mrSYqjQIAZ4DSfUe/aman24-admin?node-id=5-399&p=f&t=G306tKHBMfNCYglK-0)
+- [Mobile Design (Figma)](https://www.figma.com/design/7GzbmGkDuPfor7i3Jcp4um/Admin-Dashboard?node-id=0-1&p=f&m=dev)
+
 ## 📋 Table of Contents
 
 - [Features](#-features)
