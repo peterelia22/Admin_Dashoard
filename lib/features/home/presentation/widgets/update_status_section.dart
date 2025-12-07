@@ -74,70 +74,73 @@ class UpdateStatusSection extends StatelessWidget {
             Wrap(
               spacing: 12,
               runSpacing: 12,
-              children: ReportStatusEnum.values.map((status) {
-                final isSelected = selectedStatus == status;
-                final statusColor = getStatusColor(status);
-                final statusName = _getStatusDisplayName(status);
+              children: ReportStatusEnum.values
+                  .where((status) => status != ReportStatusEnum.pending)
+                  .map((status) {
+                    final isSelected = selectedStatus == status;
+                    final statusColor = getStatusColor(status);
+                    final statusName = _getStatusDisplayName(status);
 
-                return GestureDetector(
-                  onTap: () => onStatusChanged(status),
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 200),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 12,
-                    ),
-                    decoration: BoxDecoration(
-                      color: isSelected
-                          ? statusColor
-                          : statusColor.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(
-                        color: statusColor,
-                        width: isSelected ? 2 : 1,
-                      ),
-                      boxShadow: isSelected
-                          ? [
-                              BoxShadow(
-                                color: statusColor.withOpacity(0.3),
-                                blurRadius: 8,
-                                offset: const Offset(0, 3),
+                    return GestureDetector(
+                      onTap: () => onStatusChanged(status),
+                      child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 200),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 12,
+                        ),
+                        decoration: BoxDecoration(
+                          color: isSelected
+                              ? statusColor
+                              : statusColor.withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: statusColor,
+                            width: isSelected ? 2 : 1,
+                          ),
+                          boxShadow: isSelected
+                              ? [
+                                  BoxShadow(
+                                    color: statusColor.withOpacity(0.3),
+                                    blurRadius: 8,
+                                    offset: const Offset(0, 3),
+                                  ),
+                                ]
+                              : [],
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              _getStatusIcon(status),
+                              color: isSelected ? Colors.white : statusColor,
+                              size: 18,
+                            ),
+                            const SizedBox(width: 8),
+                            Text(
+                              statusName,
+                              style: TextStyle(
+                                color: isSelected ? Colors.white : statusColor,
+                                fontSize: 14,
+                                fontWeight: isSelected
+                                    ? FontWeight.bold
+                                    : FontWeight.w600,
                               ),
-                            ]
-                          : [],
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(
-                          _getStatusIcon(status),
-                          color: isSelected ? Colors.white : statusColor,
-                          size: 18,
+                            ),
+                            if (isSelected) ...[
+                              const SizedBox(width: 8),
+                              const Icon(
+                                Icons.check_circle,
+                                color: Colors.white,
+                                size: 18,
+                              ),
+                            ],
+                          ],
                         ),
-                        const SizedBox(width: 8),
-                        Text(
-                          statusName,
-                          style: TextStyle(
-                            color: isSelected ? Colors.white : statusColor,
-                            fontSize: 14,
-                            fontWeight: isSelected
-                                ? FontWeight.bold
-                                : FontWeight.w600,
-                          ),
-                        ),
-                        if (isSelected) ...[
-                          const SizedBox(width: 8),
-                          const Icon(
-                            Icons.check_circle,
-                            color: Colors.white,
-                            size: 18,
-                          ),
-                        ],
-                      ],
-                    ),
-                  ),
-                );
-              }).toList(),
+                      ),
+                    );
+                  })
+                  .toList(),
             ),
           ],
         ),
